@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de texto via IA </title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" >
+
+    <!-- Importar o estilo CSS para poder realizar a tela de carregamento-->
+    <style>
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to { 
+                transform: rotate(360deg);
+            }
+        }
+         
+        
+         @-webkit-keyframes rotate {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to { 
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        .load {
+            width: 100px;
+            height: 100px;
+            margin: 110px auto 0;
+            border:solid 10px #8822aa;
+            border-radius: 50%;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+             -webkit-transition: all 0.5s ease-in;
+            -webkit-animation-name:             rotate; 
+            -webkit-animation-duration:         1.0s; 
+            -webkit-animation-iteration-count:  infinite;
+            -webkit-animation-timing-function: linear;
+                
+                 transition: all 0.5s ease-in;
+            animation-name:             rotate; 
+            animation-duration:         1.0s; 
+            animation-iteration-count:  infinite;
+            animation-timing-function: linear; 
+        }
+    </style>
+</head>
+
+
+<body class="flex flex-col min-h-screen bg-gray-100 font-sans antialised">
+    <!-- Navbar -->
+    <nav>
+        <div class="bg-gray-800 p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="/" class="text-white text-2xl font-bold">IA Geradora de Texto</a>
+                <ul class="flex">
+                    <!-- <li><a href="#" class="text-white p-2 hover:underline">Home</a></li>
+                    <li><a href="login" class="text-white p-2 hover:underline">Cadastrar</a></li> -->
+                    <li><a href="logout" class="text-white p-2 hover:underline">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <!-- Conteúdo principal  -->
+    <div class="flex-grow container mx-auto mt-10 px-4 sm:px-0">
+        <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105 flex flex-col">
+            <!-- Sessão de Introdução -->
+            <div class="text-center">
+                <h2 class="text-2xl font-semibold mb4"> Bem vindo(a) ao Gerador de Texto por IA</h2>
+                <br>
+                <p class="text-gray-700">
+                    Este é um gerador de texto de IA simples que utiliza o GPT-3 para gerar mensagens para um blogue a partir dee um vídeo no Youtube. 
+                    Pode utilizar esta ferramenta para gerar mensagens para o seu sítio Web ou blog. Basta introduzir um tópico e a IA irá gerar uma publicação de blog para você. Pode editar a publicação gerada conforme sua necessidade. Esta ferramenta é ótima para gerar conteúdos de forma rápida e fácil. 
+                </p>
+                <br>
+                <!-- Formulário para inserir o link do YT -->
+                <div>
+                    <h2 class="text-xl mb-4 font-semibold"> Coloque o vídeo do Youtube: </h2>
+                    <div class="flex space-x-4">
+                        <input id="'youtubeLink" type="url" class="flex-grow border p-2 border-gray-400 rounded-lg" placeholder="Insira o link do vídeo do Youtube aqui.">
+                        <button id="generateBlogButton" class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-500 transition-colors">Gerar Texto</button>
+                    </div>
+                </div>
+                
+                
+                 <!-- Sessão do círculo de carregamento -->
+                <div style="display:none;" id="loadingCircle" class="load">
+
+                </div>
+
+
+
+
+                <!-- Post do Blog -->
+                <section class="mt-10 flex-grow">
+                    <h2 class="text-xl mb4 font-semibold"> Texto de Blog Gerado: </h2>
+                    <div id="blogContent" class="mt-2 text-gray-700">
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="bg-gray-800 p-4 mt-10">
+            <div class="container mx-auto text-center text-white">
+                <p>&copy; Ana Luisa Silveira (Versão Brasileira).</p>
+                <!-- <a href="https://www.linkedin.com/in/ana-luisa-silveira/" class="text-white p-2 hover:underline">Clique aqui para ir para o meu LinkedIn. </a> -->
+                <br>
+                <a href="www.github.com/nalufuchs" class="text-white p-2 hover:underline">Clique aqui para ir para o código no meu GitHub. </a>
+                <br>
+                <a href="https://www.youtube.com/watch?v=ftKiHCDVwfA" class="text-white p-2 hover:underline">Vídeo de referência aqui.</a>
+            </div>
+        </div>
+
+    </footer>
+</body>
+</html>

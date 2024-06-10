@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" >
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100 font-sans antialised">
+    <nav>
+        <div class="bg-gray-800 p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="/" class="text-white text-2xl font-bold">IA Geradora de Texto</a>
+                <ul class="flex">
+                    <li><a href="signup" class="text-white p-2 hover:underline">Cadastre-se</a></li>
+                    <li><a href="login" class="text-white p-2 hover:underline">Já tenho uma conta</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+   
+    <!-- Conteúdo Principal -->
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white p-8 shadow-md rounded-lg max-w-md w-full">
+
+            <!-- Formulário de Login -->
+            <form class="space-y-4" action="" method="post"> 
+                {% csrf_token %}
+                <!-- Adiciona um token de segurança ao formulário, método do django --> 
+
+                <!-- Adição de mensagem de erro --> 
+                {% if error_message % }   
+                    <div align="center" style="color: red">
+                        <h2> {{ error_message }}. </h2>
+                    </div>
+                {% endif %}
+
+                <h2 class="text-xl font-semibold"> Crie sua conta: </h2>
+                <br>
+                <div>
+                    <label for="username" class="block mb1 font-medium"> Crie o nome de usuário </label>
+                    <input type="text" id="username" name="username" placeholder="usuario_exemplo123" class="w-full p-2 border rounded"> 
+                </div>
+
+                <div>
+                    <label for="email" class="block mb1 font-medium"> Insira seu e-mail </label>
+                    <input type="text" id="email" name="email" placeholder="exemplo@exemplo.com" class="w-full p-2 border rounded"> 
+                </div>
+
+                
+                <div>
+                    <label for="senha" class="block mb1 font-medium"> Crie uma senha </label>
+                    <input type="text" id="senha" name="senha" placeholder="Sua senha deve conter letras e números." class="w-full p-2 border rounded"> 
+                </div>
+
+
+                <div>
+                    <label for="senhaRepetida" class="block mb1 font-medium"> Repita sua senha </label>
+                    <input type="text" id="senhaRepetida" name="senhaRepetida" placeholder="Repita a senha criada anteriormente." class="w-full p-2 border rounded"> 
+                </div>
+
+                <button type="submit" class="w-full bg-gray-800 text-white p-2 rounded hover:bg-gray-500" > Cadastrar </button>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>
